@@ -24,7 +24,7 @@ p = zeros(size(X, 1), 1);
 % 5000 examples, 400 features
 disp(size(X)); 
 X = [ones(m, 1) X];
-z2 = X * Theta1'; % m x n * n * r = m * r; 
+z2 = X * Theta1'; % m x n * n x r = m x r; 
 a2 = sigmoid(z2);
 
 a2 = [ones(m, 1) a2];
