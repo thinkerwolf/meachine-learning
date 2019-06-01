@@ -81,26 +81,6 @@ X = [ones(m, 1) X];
 
 fprintf('Running gradient descent ...\n');
 
-% Different learning rate
-R = [0.01 0.03 0.06 0.09 0.1 0.2 0.3]
-figure;
-for i = 1 : size(R, 2)
-  % Choose some alpha value  0.3, 0.1, 0.03, 0.01 and so on
-  alpha = R(i);
-  num_iters = 400;
-
-  % Init Theta and Run Gradient Descent 
-  theta = zeros(3, 1);
-  [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
-
-  % Plot the convergence graph
-  plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
-  xlabel('Number of iterations');
-  ylabel('Cost J');
-  hold on;
-endfor
-
-
 % Choose some alpha value  0.3, 0.1, 0.03, 0.01 and so on
 alpha = 0.01;
 num_iters = 400;

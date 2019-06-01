@@ -64,9 +64,9 @@ Theta2_grad = zeros(size(Theta2));
 
 % y = m * K;   Theta1 * X   Theta1=m*n 
 
-disp(size(Theta1));
-disp(size(Theta2));
-disp(size(y));
+%disp(size(Theta1));
+%disp(size(Theta2));
+%disp(size(y));
 %fprintf('Program paused. Press enter to continue.\n');
 %pause;
 

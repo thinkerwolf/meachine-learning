@@ -13,8 +13,8 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
-h = theta' * X';
-sv = (h - y') * (h - y')';
+h = X * theta; 
+sv = (h - y)' * (h - y);
 % disp(size(h - y'));
 % disp(sv);
 J = sv * (1 / (2 * m));
