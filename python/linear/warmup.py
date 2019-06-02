@@ -30,6 +30,6 @@ print(np.sum(t5))
 
 print(np.log(t5))
 
-
+print(t5[(t5 > 4)])
 
 

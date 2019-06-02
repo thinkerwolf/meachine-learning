@@ -13,7 +13,8 @@ from calcu import *
 import os
 
 
-os.chdir(os.path.realpath("."))
+# os.chdir(os.path.realpath("."))
+os.chdir(os.path.split(os.path.abspath(__file__))[0])
 data = loadtxt("ex1data2.txt", delimiter=",")
 X = data[:, 0 : 2]
 y = data[:, 2 : 3]
@@ -26,15 +27,15 @@ print("y = ")
 print(y[0 : 5, :])
 
 
-print('Normalizing Features ...');
+print('Normalizing Features ...')
 (X, mu, sigma) = featureNormalize(X)
 print(X)
 
 X = np.hstack((np.ones((m, 1)), X))
 
-print('\nRunning gradient descent ...');
-alpha = 0.01;
-iterations = 400;
+print('\nRunning gradient descent ...')
+alpha = 0.01
+iterations = 400
 theta = np.zeros((n + 1, 1))
 (theta, J_history) = gradientDescent(X, y, theta, alpha, iterations)
 # Plot the convergence graph

@@ -12,10 +12,10 @@ from matplotlib import cm
 from numpy import loadtxt
 import os
 from calcu import * 
-from logistic.calcu import costFunction, gradient
 
 print("Plotting data....")
-os.chdir(os.path.realpath("."))
+# os.chdir(os.path.realpath('.'))
+os.chdir(os.path.split(os.path.abspath(__file__))[0])
 data = loadtxt("ex2data1.txt", delimiter=",")
 X = data[:, 0 : 2]
 y = data[:, 2 : 3]
@@ -47,12 +47,21 @@ ini_theta = np.zeros(n + 1)
 
 result = opt.minimize(fun = costFunction, x0 = ini_theta, args = (X, y),  method='Newton-CG',jac = gradient)
 print(result)
-print('Cost at theta found by minimize: ', result.fun);
-print('Expected cost (approx): 0.203');
-print('theta: ');
-print('  ', result.x);
-print('Expected theta (approx):');
-print(' -25.161\n 0.206\n 0.201');
+print('Cost at theta found by minimize: ', result.fun)
+print('Expected cost (approx): 0.203')
+print('theta: ')
+print('  ', result.x)
+print('Expected theta (approx):')
+print(' -25.161\n 0.206\n 0.201')
+
+print('Plot the decision boundary')
+plotDecisionBoundary(result.x, X, y)
+
+p = predict(result.x, X)
+py = (p == y)
+acc = len(py[(py == True)]) * 100.0 / len(y)
+print('Train Accuracy: ', acc)
+print('Expected accuracy (approx): 89.0')
 
 
 

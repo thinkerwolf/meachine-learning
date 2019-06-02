@@ -9,7 +9,8 @@ import os
 from calcu import * 
 
 print("Plotting data....")
-os.chdir(os.path.realpath("."))
+# os.chdir(os.path.realpath("."))
+os.chdir(os.path.split(os.path.abspath(__file__))[0])
 data = loadtxt("ex1data1.txt", delimiter=",")
 X = data[:, 0]
 y = data[:, 1]
@@ -26,15 +27,15 @@ theta = np.zeros((n + 1, 1))
 print("\nTesting the cost function.....")
 J = computeCost(X, y, theta)
 print('With theta = [0 ; 0], Cost computed = ', J)
-print('Expected cost value (approx) 32.07');
+print('Expected cost value (approx) 32.07')
 J = computeCost(X, y, np.array([[-1], [2]]))
 print('With theta = [-1 ; 2], Cost computed = ', J)
-print('Expected cost value (approx) 54.24');
+print('Expected cost value (approx) 54.24')
 
 
 print("\nRunning Gradient Descent ...")
-iterations = 1500;
-alpha = 0.01;
+iterations = 1500
+alpha = 0.01
 (theta, J_history) = gradientDescent(X, y, theta, alpha, iterations)
 print("Theta found by gradient descent:", theta)
 print("Expected theta values (approx)")
