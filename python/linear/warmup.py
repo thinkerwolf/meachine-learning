@@ -1,5 +1,6 @@
 import numpy as np
 
+
 A = np.arange(5).reshape(1, 5)
 print(A)
 print(A.shape)
@@ -31,5 +32,15 @@ print(np.sum(t5))
 print(np.log(t5))
 
 print(t5[(t5 > 4)])
+
+X1 = np.array([[3], [5], [7], [10], [11]])
+X2 = np.array([[4], [9], [8], [6], [20]])
+print(X1[:, 0:1])
+C = np.zeros(X1.shape)
+print(C[:,::])
+
+
+
+
 
 
