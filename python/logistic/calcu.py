@@ -36,7 +36,7 @@ def costFunction(theta : np.ndarray, X : np.ndarray, y : np.ndarray):
     theta = np.reshape(theta, (n, 1))
     z = X @ theta
     g = sigmoid(z) # m * 1
-    J = 1.0 / m * np.sum(-1 * y * np.log(g) - (1.0 - y) * np.log(1.0 - g))
+    J = -1.0 / m * np.sum(1 * y * np.log(g) + (1.0 - y) * np.log(1.0 - g))
     return J
 
 '''

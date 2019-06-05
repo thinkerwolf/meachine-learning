@@ -53,7 +53,7 @@ def lrCostFunction(theta : np.ndarray, X : np.ndarray, y : np.ndarray, lam=1.):
     return J
 
 '''
-梯度
+Gradient
 '''
 def gradient(theta : np.ndarray, X : np.ndarray, y : np.ndarray):
     m, n = X.shape
@@ -65,7 +65,7 @@ def gradient(theta : np.ndarray, X : np.ndarray, y : np.ndarray):
     return grad
 
 '''
-正则化梯度
+Regularization  Gradient
 '''
 def gradientReg(theta : np.ndarray, X : np.ndarray, y : np.ndarray, lam = 1.):
     grad = gradient(theta, X, y)
@@ -92,9 +92,26 @@ def predictOneVsAll(all_theta : np.ndarray, X : np.ndarray):
     m = X.shape[0]
     X = np.column_stack((np.ones(m), X))
     # num_labels = all_theta.shape[0]
-    H = X @ all_theta.T
-    prob_matrix = sigmoid(H)
+    z = X @ all_theta.T
+    prob_matrix = sigmoid(z)
     y_pred = np.argmax(prob_matrix, axis=1) + 1
-    print(y_pred)
     return y_pred
+    
+'''
+Neural Network Forward Propagation
+'''
+def nnPredict(Theta1 : np.ndarray, Theta2 : np.ndarray, X : np.ndarray):
+    z2 = X @ Theta1.T  # 5000 * 400
+    a2 = sigmoid(z2)   # 5000 * 25
+    a2 = np.column_stack((np.ones(a2.shape[0]), a2))
+    
+    z3 = a2 @ Theta2.T
+    h = sigmoid(z3)
+    y_pred = np.argmax(h, axis=1) + 1
+    return y_pred
+
+
+
+
+    
     
