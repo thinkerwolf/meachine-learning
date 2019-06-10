@@ -8,15 +8,16 @@ function [X_poly] = polyFeatures(X, p)
 
 % You need to return the following variables correctly.
 X_poly = zeros(numel(X), p);
-
 % ====================== YOUR CODE HERE ======================
 % Instructions: Given a vector X, return a matrix X_poly where the p-th 
 %               column of X contains the values of X to the p-th power.
 %
 % 
 
-
-
+for i=1:p
+    x_temp = X .^i;
+    X_poly(:, i) = x_temp;
+end
 
 
 
